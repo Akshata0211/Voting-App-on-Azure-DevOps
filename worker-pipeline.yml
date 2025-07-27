@@ -3,7 +3,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-  paths:
+ paths:
    include:
      - worker/**
 
@@ -12,7 +12,7 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '7ace65f1-9ed6-46d3-a813-837d91868cff'
+  dockerRegistryServiceConnection: '743cf574-9712-481b-9397-530f8d0d2855'
   imageRepository: 'worker'
   containerRegistry: 'akshataazurecicd.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/worker/Dockerfile'
@@ -27,7 +27,7 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    
+  
     steps:
     - task: Docker@2
       displayName: Build and push an image to container registry
