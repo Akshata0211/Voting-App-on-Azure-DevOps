@@ -17,7 +17,7 @@ variables:
   tag: '$(Build.BuildId)'
 
 pool:
-  - name : 'agentpool'
+   name : 'agentpool'
 
 stages:
 - stage: Build
