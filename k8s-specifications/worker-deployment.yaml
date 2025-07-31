@@ -17,3 +17,8 @@ spec:
       containers:
       - image: akshataazurecicd.azurecr.io/worker:20
         name: worker
+      ports:
+        - containerPort: 80
+          name: worker
+      imagePullSecrets:
+      - name: secret
