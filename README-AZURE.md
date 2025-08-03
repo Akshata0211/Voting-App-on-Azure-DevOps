@@ -68,17 +68,15 @@ For each microservice (vote, worker, result):
     ```
     
    - Enable Admin Credentials:
-     
-    `Azure Portal → Your ACR → Settings → Access keys → Enable Admin user`
-     Note the username (ACR-REPOname) and password
+     `Azure Portal → Your ACR → Settings → Access keys → Enable Admin user`
   
 4. Create ImagePullSecret:
    ```bash
    kubectl create secret docker-registry acr-credentials \
-  --namespace default \
-  --docker-server=ACR-REPOname.azurecr.io \
-  --docker-username=ACR-REPOname \
-  --docker-password=<your-acr-password>
+     --namespace default \
+     --docker-server=ACR-REPOname.azurecr.io \
+     --docker-username=ACR-REPOname \
+     --docker-password=<your-acr-password>
    ```
 
 5. Update Kubernetes Manifests
