@@ -33,7 +33,7 @@ This project demonstrates the deployment of a multi-container voting application
 
 1. Create Linux VM on Azure Portal
 2. In Azure DevOps:
-   - Project Settings > Agent Pools > Add pool (self-hosted)
+    `Project Settings > Agent Pools > Add pool (self-hosted)`
 3. On VM:
    ```bash
    ssh -i keyname.pem azureuser@vm-public-ip
@@ -66,21 +66,22 @@ For each microservice (vote, worker, result):
     ```bash
     az acr create --resource-group azurecicd --name ACR-REPOname --sku Basic
     ```
+    
    - Enable Admin Credentials:
      
     `Azure Portal → Your ACR → Settings → Access keys → Enable Admin user`
-    
      Note the username (ACR-REPOname) and password
   
-5. Create ImagePullSecret:
+4. Create ImagePullSecret:
    ```bash
-   kubectl create secret docker-registry secret 
-  --namespace default 
-  --docker-server=ACR-REPOname.azurecr.io 
-  --docker-username=ACR-REPOname 
-  --docker-password=password
-  ```
-6. Update Kubernetes Manifests
+   kubectl create secret docker-registry acr-credentials \
+  --namespace default \
+  --docker-server=ACR-REPOname.azurecr.io \
+  --docker-username=ACR-REPOname \
+  --docker-password=<your-acr-password>
+   ```
+
+5. Update Kubernetes Manifests
    Edit k8s-specifications/deployment.yaml:
    ```bash
    image: ACR-REPOname.azurecr.io/vote:latest
