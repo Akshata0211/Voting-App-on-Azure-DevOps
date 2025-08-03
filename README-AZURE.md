@@ -57,7 +57,7 @@ For each microservice (vote, worker, result):
    ```bash
    az aks get-credentials --name azuredevops --overwrite-existing --resource-group azurecicd
    ```
-2.   Verify Cluster Nodes (Use EXTERNAL-Node-IP):
+2. Verify Cluster Nodes (Use EXTERNAL-Node-IP):
    ```bash
    kubectl get nodes -o wide
    ```
@@ -74,13 +74,13 @@ For each microservice (vote, worker, result):
   
 5. Create ImagePullSecret:
    ```bash
-   kubectl create secret docker-registry secret \
-  --namespace default \
-  --docker-server=ACR-REPOname.azurecr.io \
-  --docker-username=ACR-REPOname \
+   kubectl create secret docker-registry secret 
+  --namespace default 
+  --docker-server=ACR-REPOname.azurecr.io 
+  --docker-username=ACR-REPOname 
   --docker-password=password
   ```
-5. Update Kubernetes Manifests
+6. Update Kubernetes Manifests
    Edit k8s-specifications/deployment.yaml:
    ```bash
    image: ACR-REPOname.azurecr.io/vote:latest
