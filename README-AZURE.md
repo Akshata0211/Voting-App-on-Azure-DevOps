@@ -122,9 +122,9 @@ For each microservice (vote, worker, result):
    kubectl get svc
    ```
 2. Access:
- - Voting UI: http://<external-node-ip>:<vote-node-port>
- - Results UI: http://<external-node-ip>:<result-node-port>
- - ArgoCD UI: http://<external-node-ip>:<argocd-node-port>
+ - Voting UI: `http://<external-node-ip>:<vote-node-port>`
+ - Results UI: `http://<external-node-ip>:<result-node-port>`
+ - ArgoCD UI: `http://<external-node-ip>:<argocd-node-port>`
 
 ### Cleanup
 
