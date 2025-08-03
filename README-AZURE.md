@@ -41,8 +41,8 @@ This project demonstrates the deployment of a multi-container voting application
    sudo usermod -aG docker azureuser
    ```
 4. Run agent installation commands with:
-   Server URL: `https://dev.azure.com/organization-name`
-   PAT token (from User Settings > Personal Access Tokens)
+   - Server URL: `https://dev.azure.com/organization-name`
+   - PAT token (from User Settings > Personal Access Tokens)
 
 ### 4. Pipeline Setup
 
