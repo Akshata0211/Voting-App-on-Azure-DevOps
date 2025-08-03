@@ -62,13 +62,15 @@ For each microservice (vote, worker, result):
    kubectl get nodes -o wide
    ```
 3. ACR Configuration
- - Create ACR (if not existing):
-   ```bash
-   az acr create --resource-group azurecicd --name ACR-REPOname --sku Basic
-   ```
-  - Enable Admin Credentials:
-   `Azure Portal → Your ACR → Settings → Access keys → Enable Admin user`
-    Note the username (ACR-REPOname) and password
+  - Create ACR (if not existing):
+    ```bash
+    az acr create --resource-group azurecicd --name ACR-REPOname --sku Basic
+    ```
+   - Enable Admin Credentials:
+     
+    `Azure Portal → Your ACR → Settings → Access keys → Enable Admin user`
+    
+     Note the username (ACR-REPOname) and password
   
 5. Create ImagePullSecret:
    ```bash
@@ -89,10 +91,10 @@ For each microservice (vote, worker, result):
 ### 6. ArgoCD Setup
 
 1. Install ArgoCD:
-  ```bash
-  kubectl create namespace argocd
-  kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-  ```
+   ```bash
+   kubectl create namespace argocd
+   kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+   ```
 2. Get admin password:
    ```bash
    kubectl get secrets -n argocd 
@@ -122,9 +124,9 @@ For each microservice (vote, worker, result):
    kubectl get svc
    ```
 2. Access:
- - Voting UI: `http://<external-node-ip>:<vote-node-port>`
- - Results UI: `http://<external-node-ip>:<result-node-port>`
- - ArgoCD UI: `http://<external-node-ip>:<argocd-node-port>`
+  - Voting UI: `http://<external-node-ip>:<vote-node-port>`
+  - Results UI: `http://<external-node-ip>:<result-node-port>`
+  - ArgoCD UI: `http://<external-node-ip>:<argocd-node-port>`
 
 ### Cleanup
 
